@@ -1,5 +1,5 @@
 ##### Object oriented programming
-FROM Linux Basics for Hackers:
+FROM Linux Basics for Hackers (the best and simplest description you will ever find):
 
 In object oriented programming the main component is the object which has properties (in the form of attributes and states) as well as methods (in the form of actions).
 The idea behind OOP based programming languages is to create objects that act like things in the real world. For example, a car is an object that has properties, which are actions that the car takes, such as accelerating and locking the doors. 
