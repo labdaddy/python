@@ -7,17 +7,17 @@ First we import the socket module so we can use its functions and tools. Here we
 Usually one is a server and one is a client.
 Then we create a new object named `s`, instantiated from the `socket` class from the socket module. This way we can now use this object to perform other actions such as connecting and reading data.
 We then use the `connect` method from the socket module to make a network connection to a special IP and port. Remember that methods are functions that are available for a particular object. The syntax is `object.method`. EG `socket.connect`. In this cabe I'm connecting to IP address 127.0.0.1 which is the IP address pointing back to localhost, the same machine this script is running on and port 22 which is the default SSH port. 
-Then we use the receive method (`recv`) to read 1024 bytes of date from the socket and store them in a variable named `answer`, hese 1024 bytes will contain the banner information. Then we print the contents of that variable to the screen with the `print()` function to see what data has been passed over the socket, allowing us to spy on it! On the final line we close the connection.
+Then we use the receive method (`recv`) to read 1024 bytes of date from the socket and store them in a variable named `answer`, these 1024 bytes will contain the banner information. Then we print the contents of that variable to the screen with the `print()` function to see what data has been passed over the socket, allowing us to spy on it! On the final line we close the connection.
 
 
-`#!/usr/bin/python3
+- `#!/usr/bin/python3
 
-import socket
-s = socket.socket()
-s.connect(("127.0.0.1", 22))
-answer = s.recv(1024)
-print(answer)
-s.close()`
+- import socket
+- s = socket.socket()
+- s.connect(("127.0.0.1", 22))
+- answer = s.recv(1024)
+- print(answer)
+- s.close()`
 
 Save this script as HackersAriseSSHBannerGrab.py and then change its permissions using the `chmod` command so that you can execute it.
 Lets use this script to connect to another linux system on port 22. If SSH is running on that port we should be able to read the banner into our `answer` variable and print it to the screen.
