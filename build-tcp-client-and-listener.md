@@ -13,6 +13,15 @@ This is useful in a type of hacking exploit called banner grabbing. Applications
 - `print(answer)` # print the contents of that variable to the screen with the `print()` function to see what data has been passed over the socket, allowing us to spy on it!
 - `s.close()` #close the connection
 
+#without the comments
+- `#!/usr/bin/python3`
+- `import socket`
+- `s = socket.socket()`
+- `s.connect(("127.0.0.1", 22))`
+- `answer = s.recv(1024)`
+- `print(answer)`
+- `s.close()`
+
 Save this script as HackersAriseSSHBannerGrab.py and then change its permissions using the `chmod` command so that you can execute it.
 Lets use this script to connect to another linux system on port 22. If SSH is running on that port we should be able to read the banner into our `answer` variable and print it to the screen.
 We have just created a simple banner-grabbing Python script! We can use this script to find out what application, version and operating system are running at that IP address and port. This gives us key information that a hacker needs before attacking any system. This is essentially what shodan.io does for nearly every IP address on the planet and it catalogs and indexes this information for us to search.
@@ -46,7 +55,24 @@ We just created a TCP client that can make a connection to another TCP/ IP addre
    
    `conn.close()` #close the connection
  
- 
+ #without the comments
+ - `#!/usr/bin/python3`
+ - `import socket`
+ - `TCP_IP = "192.168.181.190"`
+ - `TCP_PORT = 6996`
+ - `BUFFER_SIZE = 100`
+ - `s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)`
+ - `s.bind((TCP_IP, TCP_PORT))`
+ - `s.listen(1)`
+ - `conn, addr = s.accept()`
+ - `print('Connection address: ', addr )`
+ - `while True:`
+ -   `data=conn.recv(BUFFER_SIZE)`
+ -   `if not data:`
+ -     `break`
+ -   `print("Received data: ", data)`
+ -     `conn.send(data) #echo`
+ - `conn.close()`
  
  
  
