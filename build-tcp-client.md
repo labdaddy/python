@@ -25,17 +25,30 @@ We just created a TCP client that can make a connection to another TCP/ IP addre
  In the Python script below you'll create a socket on any port in your system that when someone connects to that socket, collects key information about the connectors system.
  Enter the script and save it as tcp_server.py. Make sure to give yourself permissions with `chmod`.
  
- `#!/usr/bin/python3
+ - `#!/usr/bin/python3`
  
- import socket
+ - `import socket`
  
- TCP_IP = "192.168.181.190"
- TCP_PORT = 6996
- BUFFER_SIZE = 100
+ - `TCP_IP = "192.168.181.190"`
+ - `TCP_PORT = 6996`
+ - `BUFFER_SIZE = 100`
  
- s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
- s.bind((TCP_IP, TCP_PORT))
+ - `s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)`
+ - `s.bind((TCP_IP, TCP_PORT))`
+ - `s.listen(1)`
  
+ - `conn, addr = s.accept()`
+ - `print('Connection address: ', addr )`
+ 
+ - `while True:`
+  
+     `data=conn.recv(BUFFER_SIZE)`
+     `if not data:`
+       `break`
+     `print("Received data: ", data)`
+     `conn.send(data) #echo`
+   
+   `conn.close()`
  
  
  
