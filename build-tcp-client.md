@@ -25,30 +25,30 @@ We just created a TCP client that can make a connection to another TCP/ IP addre
  In the Python script below you'll create a socket on any port in your system that when someone connects to that socket, collects key information about the connectors system.
  Enter the script and save it as tcp_server.py. Make sure to give yourself permissions with `chmod`.
  
- - `#!/usr/bin/python3`
+ - `#!/usr/bin/python3` #We declare that we want the script to run with the Python interpreter
  
- - `import socket`
+ - `import socket` #we import the socket modulde as before so we can use its capabilities.
  
- - `TCP_IP = "192.168.181.190"`
- - `TCP_PORT = 6996`
- - `BUFFER_SIZE = 100`
+ - `TCP_IP = "192.168.181.190" #define a variable to hold the IP address`
+ - `TCP_PORT = 6996 #define a variable to hold the port number`
+ - `BUFFER_SIZE = 100 #define a variable to hold the buffer size of the data we are capturing from the connected system`
  
- - `s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)`
- - `s.bind((TCP_IP, TCP_PORT))`
- - `s.listen(1)`
+ - `s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #define the socket`
+ - `s.bind((TCP_IP, TCP_PORT)) #bind the socket to the IP address and port using the variables created above`
+ - `s.listen(1) #tell the socket to listen using the listen() method from the socket library`
  
- - `conn, addr = s.accept()`
- - `print('Connection address: ', addr )`
+ - `conn, addr = s.accept() #capture IP address and port of the connecting system using the socket library's accept() method`
+ - `print('Connection address: ', addr ) #print the information captured above to the screen`
  
  - `while True:`
   
-     `data=conn.recv(BUFFER_SIZE)`
+     `data=conn.recv(BUFFER_SIZE) #put data from the connecting system into a buffer`
      `if not data:`
        `break`
-     `print("Received data: ", data)`
+     `print("Received data: ", data) #print said data`
      `conn.send(data) #echo`
    
-   `conn.close()`
+   `conn.close() #close the connection`
  
  
  
