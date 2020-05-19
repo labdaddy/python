@@ -19,7 +19,7 @@ Then we use the receive method (`recv`) to read 1024 bytes of date from the sock
 
 Save this script as HackersAriseSSHBannerGrab.py and then change its permissions using the `chmod` command so that you can execute it.
 Lets use this script to connect to another linux system on port 22. If SSH is running on that port we should be able to read the banner into our `answer` variable and print it to the screen.
-We have just created a simple banner-grabbing Python script! We can use this script to find out what application, version and operating syste, are running at that IP address and port. This gives us key information that a hacker needs before attacking any system. This is essentially what shodan.io does for nearly every IP address on the planet and it catalogs and indexes this information for us to search.
+We have just created a simple banner-grabbing Python script! We can use this script to find out what application, version and operating system are running at that IP address and port. This gives us key information that a hacker needs before attacking any system. This is essentially what shodan.io does for nearly every IP address on the planet and it catalogs and indexes this information for us to search.
 
 We just created a TCP client that can make a connection to another TCP/ IP address and port and then spy on the information being transmitted. That socket can also be used to create a TCP listener, to listen to connections from outsiders to your server. Let's try doing that next.
  In the Python script below you'll create a socket on any port in your system that when someone connects to that socket, collects key information about the connectors system.
